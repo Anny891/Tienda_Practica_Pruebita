@@ -1,3 +1,29 @@
-<p>producto-component works!</p>
+
+<h1>Registro de productos</h1>
+
+
+<p>Cantidad de productos: {{productos.length}}</p>
+@if (productos.length == 0){
+    <p>No hay datos registrados</p>
+}
+<table border="3">
+    <tr>
+        <th>ID</th>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Existencias</th>
+    </tr>
+
+    @for (producto of productos; track producto.id){
+        <tr>
+            <td>{{producto.id}}</td>
+            <td>{{producto.codigo}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio}}</td>
+            <td>{{producto.existencias}}</td>
+        </tr>
+    }
+</table>
 
 <button type="button" (click)="cerrarSesion()">Cerrar Sesion</button>
