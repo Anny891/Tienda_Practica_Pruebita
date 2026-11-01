@@ -1,5 +1,23 @@
-
+<div class="reg">
 <h1>Registro de productos</h1>
+<form (ngSubmit)="guardar()">
+
+    <label>Codigo</label>
+    <input type="text" id="codigo" name="codigo" [(ngModel)]="codigo" required>
+
+    <label>Nombre</label>
+    <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+
+    <label>Precio</label>
+    <input type="number" id="precio"  name="precio" [(ngModel)]="precio" required>
+
+    <label>Existencia</label>
+    <input type="number" id="existencias" name="existencias" [(ngModel)]="existencias" required>
+
+    <button type="submit">Guardar</button>
+</form>
+
+</div>
 
 
 <p>Cantidad de productos: {{productos.length}}</p>

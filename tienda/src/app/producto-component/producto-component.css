@@ -1,0 +1,15 @@
+.reg{
+    width: 200px;
+    padding: 20px;
+    margin: auto;
+    border: 1px, solid gray;
+    background-color: rgb(129, 107, 150);
+}
+
+input {
+    display: block;
+}
+
+label {
+    display: block;
+}
