@@ -76,6 +76,13 @@ export class ProductoComponent {
 
   }
 
+  eliminar(i:number){
+    if (confirm('¿Deseas eliminarlo?')){
+      this.productos.splice(i, 1);
+      this.guardarEnLocalStore();
+    }
+  }
+
   guardarEnLocalStore(){
     localStorage.setItem('productosTienda', JSON.stringify(this.productos));
   }
