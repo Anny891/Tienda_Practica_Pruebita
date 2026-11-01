@@ -1,0 +1,15 @@
+
+<div class="Login">
+<h1>Login</h1>
+
+<form (ngSubmit)=ingresar()>
+
+    <label>Usuario</label>
+    <input type="text" name="usuario" id="usuario" [(ngModel)]="usuario" required>
+
+    <label>Contraseña</label>
+    <input type="password" name="contrasena" id="contrasena" [(ngModel)]="contrasena" required >
+
+    <button type="submit">Ingresar</button>
+</form>
+</div>
