@@ -24,6 +24,7 @@ export class ProductoComponent {
   nombre = '';
   precio: number | null = null;
   existencias: number | null = null;
+  editarPosicion = -1;
 
   guardar(){
     if (this.codigo.trim()== '' || this.nombre.trim() == '' || this.precio == null || this.existencias == null) {
@@ -36,6 +37,7 @@ export class ProductoComponent {
       return; 
     }
 
+    if (this.editarPosicion == -1){
     const productoNuevo = {
       id: Math.max(0, ...this.productos.map(e => e.id)) + 1,
       codigo: this.codigo,
@@ -44,8 +46,15 @@ export class ProductoComponent {
       existencias: this.existencias
 
     }
+      this.productos.push(productoNuevo);
+  } else {
+    this.productos[this.editarPosicion].codigo = this.codigo;
+    this.productos[this.editarPosicion].nombre = this.nombre;
+    this.productos[this.editarPosicion].precio = this.precio;
+    this.productos[this.editarPosicion].existencias = this.existencias;
+  }
 
-    this.productos.push(productoNuevo);
+    
     this.limpiar();
     this.guardarEnLocalStore();
   }
@@ -55,6 +64,16 @@ export class ProductoComponent {
     this.nombre = '';
     this.precio = null;
     this.existencias = null;
+    this.editarPosicion = -1;
+  }
+
+  editar(i: number){
+    this.editarPosicion = i;
+    this.codigo = this.productos[i].codigo;
+    this.nombre = this.productos[i].nombre;
+    this.precio = this.productos[i].precio;
+    this.existencias = this.productos[i].existencias
+
   }
 
   guardarEnLocalStore(){
